@@ -4,15 +4,20 @@
 :root {
 	--index: calc(1vw + 1vh);
 	--gutter: 30px;
+	--depth: 4000px;
 
 	--side-small: 26;
 	--side-big: 36;
 
 	--color-bg: #000;
 	--color-text: #fff;
+
+	--transition: 0.1s cubic-bezier(0.1, 0, 0.6, 1);
 }
 
 body {
+	height: var(--depth);
+
 	font-family: 'raleway_c', sans-serif;
 	font-size: calc(var(--index) * 0.8);
 	font-weight: 300;
@@ -20,6 +25,21 @@ body {
 	color: var(--color-text);
 
 	background-color: var(--color-bg);
+}
+
+h1,
+h2,
+h3,
+h4 {
+	font-weight: 100;
+	text-transform: uppercase;
+
+	user-select: none;
+}
+
+h2 {
+	font-size: calc(var(--index) * 3.3);
+	text-align: center;
 }
 
 .container {
@@ -47,4 +67,38 @@ body {
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
+
+	transition: var(--transition), opacity 0.75s ease;
+
+	will-change: transform;
+	transform-style: preserve-3d;
+}
+
+.frame--bg {
+	background-color: rgb(0 0 0 / 0.8);
+}
+
+.frame__content {
+}
+
+.frame__media {
+	width: calc(var(--index) * var(--side-small));
+	height: calc(var(--index) * var(--side-big));
+
+	position: relative;
+
+	background-position: center;
+	background-size: cover;
+}
+
+.frame__media--left {
+	right: calc(
+		var(--index) * var(--side-small) / 2 + var(--gutter)
+	);
+}
+
+.frame__media--right {
+	left: calc(
+		var(--index) * var(--side-small) / 2 + var(--gutter)
+	);
 }
