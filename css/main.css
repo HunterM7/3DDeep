@@ -1,0 +1,50 @@
+@import 'normalize.css';
+@import 'fonts.css';
+
+:root {
+	--index: calc(1vw + 1vh);
+	--gutter: 30px;
+
+	--side-small: 26;
+	--side-big: 36;
+
+	--color-bg: #000;
+	--color-text: #fff;
+}
+
+body {
+	font-family: 'raleway_c', sans-serif;
+	font-size: calc(var(--index) * 0.8);
+	font-weight: 300;
+	line-height: 1.75;
+	color: var(--color-text);
+
+	background-color: var(--color-bg);
+}
+
+.container {
+	width: 100%;
+	height: 100%;
+
+	position: fixed;
+
+	perspective: 1500px;
+}
+
+.gallery {
+	height: 100%;
+
+	transform-style: preserve-3d;
+}
+
+.frame {
+	width: 100%;
+	height: 100%;
+
+	position: absolute;
+
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
