@@ -4,7 +4,7 @@
 :root {
 	--index: calc(1vw + 1vh);
 	--gutter: 30px;
-	--depth: 4000px;
+	--depth: 10300px;
 
 	--side-small: 26;
 	--side-big: 36;
@@ -32,14 +32,26 @@ h2,
 h3,
 h4 {
 	font-weight: 100;
+	line-height: 1;
 	text-transform: uppercase;
+	width: min-content;
 
 	user-select: none;
+
+	margin-bottom: 5vh;
 }
 
 h2 {
 	font-size: calc(var(--index) * 3.3);
 	text-align: center;
+}
+
+h3 {
+	font-size: calc(var(--index) * 3);
+}
+
+p {
+	max-width: 30vw;
 }
 
 .container {
@@ -101,4 +113,31 @@ h2 {
 	left: calc(
 		var(--index) * var(--side-small) / 2 + var(--gutter)
 	);
+}
+
+video.frame__media {
+	width: calc(var(--index) * var(--side-big));
+	height: calc(var(--index) * var(--side-small));
+}
+
+video.frame__media--left {
+	right: calc(
+		var(--index) * var(--side-big) / 2 + var(--gutter)
+	);
+}
+
+video.frame__media--right {
+	left: calc(
+		var(--index) * var(--side-big) / 2 + var(--gutter)
+	);
+}
+
+.text-right > * {
+	position: relative;
+	left: 18vw;
+}
+
+.text-left > * {
+	position: relative;
+	right: 18vw;
 }
