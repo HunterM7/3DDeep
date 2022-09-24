@@ -4,7 +4,7 @@
 :root {
 	--index: calc(1vw + 1vh);
 	--gutter: 30px;
-	--depth: 10300px;
+	--depth: 10200px;
 
 	--side-small: 26;
 	--side-big: 36;
@@ -140,4 +140,20 @@ video.frame__media--right {
 .text-left > * {
 	position: relative;
 	right: 18vw;
+}
+
+.soundBtn {
+	width: 24px;
+
+	position: fixed;
+	bottom: 5vw;
+	right: 5vw;
+
+	cursor: pointer;
+
+	transition: opacity 0.25s ease;
+}
+
+.soundBtn.paused {
+	opacity: 0.25;
 }

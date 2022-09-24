@@ -32,3 +32,24 @@ function handleScroll() {
 		)
 	})
 }
+
+// Audio
+
+let soundBtn = document.querySelector('.soundBtn'),
+	audio = document.querySelector('.audio')
+
+soundBtn.addEventListener('click', (e) => {
+	soundBtn.classList.toggle('paused')
+
+	audio.paused ? audio.play() : audio.pause()
+})
+
+window.onfocus = () => {
+	soundBtn.classList.contains('paused')
+		? audio.pause()
+		: audio.play()
+}
+
+window.onblur = () => {
+	audio.pause()
+}
