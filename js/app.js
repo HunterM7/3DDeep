@@ -1,11 +1,15 @@
 // 3D Scroll
 
 let zSpacing = -1000,
-	lastPos = zSpacing / 5,
+	lastPos = 0,
 	frames = Array.from(
 		document.getElementsByClassName('frame'),
 	),
 	zVals = []
+
+for (i = 0; i < frames.length; i++) {
+	zVals.push(i * zSpacing + zSpacing)
+}
 
 window.onscroll = handleScroll
 
@@ -17,13 +21,15 @@ function handleScroll() {
 
 	lastPos = top
 
-	frames.forEach((n, i) => {
-		zVals.push(i * zSpacing + zSpacing)
+	frames.forEach((frame, i) => {
 		zVals[i] += delta * -2
 
-		let frame = frames[i],
-			transform = `translateZ(${zVals[i]}px)`,
-			opacity = zVals[i] < Math.abs(zSpacing) / 1.5 ? 1 : 0
+		let transform = `translateZ(${zVals[i]}px)`,
+			opacity =
+				zVals[i] < Math.abs(zSpacing) / 1.5 &&
+				Math.abs(zVals[i] / zSpacing) < 5
+					? 1
+					: 0
 
 		frame.setAttribute(
 			'style',
